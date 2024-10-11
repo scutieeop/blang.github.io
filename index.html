@@ -12,8 +12,7 @@
             --bg-color: #f4f4f4;
             --text-color: #333;
             --code-bg-color: #282c34;
-            --sidebar-width: 200px; /* Genişlik Azaltıldı */
-            --transition-duration: 0.3s;
+            --sidebar-width: 250px;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,13 +21,11 @@
             background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Taşmayı önlemek için */
         }
         .container {
             display: flex;
             width: 100%;
             min-height: 100vh;
-            transition: margin-left var(--transition-duration);
         }
         .sidebar {
             width: var(--sidebar-width);
@@ -38,22 +35,12 @@
             height: 100vh;
             overflow-y: auto;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            transition: transform var(--transition-duration);
-            z-index: 1000;
-        }
-        .sidebar.hidden {
-            transform: translateX(-100%);
         }
         .content {
             flex-grow: 1;
-            padding: 20px;
+            padding: 60px;
             margin-left: var(--sidebar-width);
             max-width: calc(100% - var(--sidebar-width));
-            transition: margin-left var(--transition-duration), max-width var(--transition-duration);
-        }
-        .sidebar.hidden + .content {
-            margin-left: 0;
-            max-width: 100%;
         }
         h1, h2, h3 {
             color: var(--primary-color);
@@ -118,36 +105,14 @@
         .button:hover {
             background-color: #3a7bc8;
         }
-        .toggle-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            z-index: 1100;
-            transition: background-color 0.3s;
-        }
-        .toggle-button:hover {
-            background-color: #3a7bc8;
-        }
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
             }
             .sidebar {
-                width: var(--sidebar-width);
-                height: 100%;
-                position: fixed;
-                top: 0;
-                left: 0;
-                transform: translateX(-100%);
-            }
-            .sidebar.visible {
-                transform: translateX(0);
+                width: 100%;
+                height: auto;
+                position: relative;
             }
             .content {
                 margin-left: 0;
@@ -157,9 +122,8 @@
     </style>
 </head>
 <body>
-    <button class="toggle-button" id="toggleSidebar">☰ Menü</button>
     <div class="container">
-        <aside class="sidebar hidden" id="sidebar">
+        <aside class="sidebar">
             <div class="logo">Blang</div>
             <nav>
                 <a href="#introduction" class="nav-link">Introduction</a>
@@ -190,7 +154,7 @@
 cd blang
 npm install
 npm link</code></pre>
-                <p>This will make the <code>blang</code> command available globally on your system.</p>
+                <p>This will make the `blang` command available globally on your system.</p>
             </section>
 
             <section id="usage">
@@ -401,43 +365,7 @@ displayTasks()</code></pre>
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-
-                // Eğer mobil görünümde sidebar açıksa kapat
-                if (window.innerWidth <= 768) {
-                    sidebar.classList.add('hidden');
-                }
             });
-        });
-
-        // Toggle sidebar
-        const toggleButton = document.getElementById('toggleSidebar');
-        const sidebar = document.getElementById('sidebar');
-
-        toggleButton.addEventListener('click', () => {
-            if (window.innerWidth > 768) {
-                sidebar.classList.toggle('hidden');
-            } else {
-                sidebar.classList.toggle('visible');
-            }
-        });
-
-        // Varsayılan olarak sidebar gizli
-        window.addEventListener('load', () => {
-            if (window.innerWidth <= 768) {
-                sidebar.classList.add('hidden');
-            } else {
-                sidebar.classList.remove('hidden');
-            }
-        });
-
-        // Pencere boyutu değiştiğinde uygun sınıfları ayarla
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                sidebar.classList.remove('visible');
-                sidebar.classList.remove('hidden');
-            } else {
-                sidebar.classList.add('hidden');
-            }
         });
     </script>
 </body>
