@@ -30,7 +30,7 @@ This will make the `blang` command available globally on your system.
 
 Create a file named `hello.blang` with the following content:
 
-```blang
+```javascript
 func main() {
     print("Hello, World!")
 }
