@@ -1,61 +1,155 @@
 # Blang Programming Language
 
-Blang is a modern, expressive programming language designed for simplicity and productivity. It combines familiar syntax with powerful features to create an enjoyable development experience.
+Blang is a custom programming language that transpiles to JavaScript. It combines features from Python and JavaScript to create a unique and intuitive syntax.
 
 ## Features
 
-- Clean and intuitive syntax
-- Strong typing with type inference
-- First-class functions and closures
-- Built-in concurrency support
-- Comprehensive standard library
-- Easy-to-use package manager
+- Python-like syntax with JavaScript interoperability
+- Custom module system
+- String interpolation
+- List comprehensions
+- Class-based object-oriented programming
+- Error handling
+- Modern JavaScript features (ternary operator, nullish coalescing)
 
-## Quick Start
+## Installation
 
-### Installation
+To install Blang, follow these steps:
 
-To install Blang, you need to clone the repository and build it from source:
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/blang.git
+   cd blang
+   ```
 
-```bash
-git clone https://github.com/scutieeop/blang.github.io.git
-cd blang.github.io
-npm install
-npm link
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Link the Blang CLI globally:
+   ```
+   npm link
+   ```
+
+## Usage
+
+### Running a Blang File
+
+To run a Blang file, use the following command:
+
+```
+blang path/to/your/file.blang
 ```
 
-This will make the `blang` command available globally on your system.
+### Creating a New Blang Project
 
-### Hello World
+To create a new Blang project, use:
 
-Create a file named `hello.blang` with the following content:
+```
+blang create my-project
+cd my-project
+```
+
+This will set up a new Blang project with a basic structure.
+
+## Syntax Overview
+
+### Module Import
 
 ```javascript
-func main() {
-    print("Hello, World!")
+module select math * for mathematical operations
+```
+
+### Function Definition
+
+```javascript
+func greet(name) {
+    print(f"Hello, {name}!")
 }
 ```
 
-Run the program:
+### Variables
 
-```bash
-blang run hello.blang
+```javascript
+let mutable_var = "I can be changed"
+const IMMUTABLE_VAR = "I cannot be changed"
 ```
 
-## Documentation
+### String Interpolation
 
-For full documentation, please visit our [official documentation site](https://scutieeop.github.io/blang.github.io/).
+```javascript
+let name = "Blang"
+print(f"Welcome to {name}!")
+```
+
+### Conditional Statements
+
+```javascript
+if condition {
+    print("Condition is true")
+} else {
+    print("Condition is false")
+}
+```
+
+### Loops
+
+```javascript
+loop i in range(5) {
+    print(f"Iteration {i}")
+}
+```
+
+### List Comprehensions
+
+```javascript
+let squares = [x * x for x in range(10)]
+```
+
+### Error Handling
+
+```javascript
+try {
+    # Some code that might throw an error
+} catch error {
+    print(f"An error occurred: {error}")
+}
+```
+
+### Classes
+
+```javascript
+class Animal {
+    func constructor(name) {
+        this.name = name
+    }
+
+    func speak() {
+        print(f"{this.name} makes a sound")
+    }
+}
+
+class Dog extends Animal {
+    func speak() {
+        print(f"{this.name} barks")
+    }
+}
+```
+
+## Project Structure
+
+- `src/`
+  - `core/`: Core transpiler logic
+  - `cli/`: Command-line interface
+  - `utils/`: Utility functions and error handling
+- `examples/`: Example Blang code
+- `test/`: Test files
 
 ## Contributing
 
-We welcome contributions to Blang! Please see our [Contributing Guide](CONTRIBUTING.md) for more details.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-Blang is released under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Contact
-
-For questions, suggestions, or just to say hello, feel free to reach out to us at [blang@example.com](mailto:blang@example.com).
-
-Happy coding with Blang!
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
