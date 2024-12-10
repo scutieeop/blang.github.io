@@ -151,3 +151,158 @@ h2 {
     color: #666;
     margin: 2px 0;
 }
+
+/* Server Status Styles */
+.server-status {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.server-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.server-table th,
+.server-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.status-active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 20px;
+    background: #27235C;
+    border-radius: 10px;
+    width: 80%;
+}
+
+/* Management Team Styles */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.team-member {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.member-avatar {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+}
+
+.role {
+    display: inline-block;
+    padding: 5px 15px;
+    background: #dc3545;
+    color: white;
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Support Page Styles */
+.create-ticket {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.support-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.my-tickets,
+.online-admins {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ticket-message,
+.admin-message {
+    color: #dc3545;
+    background: #f8d7da;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Rules Page Styles */
+.rules-nav {
+    margin-bottom: 20px;
+}
+
+.rules-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-rule {
+    padding: 8px 20px;
+    border: 1px solid var(--primary-color);
+    background: white;
+    color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-rule.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.rules-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+}
+
+.rules-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
